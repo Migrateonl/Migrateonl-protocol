@@ -1,0 +1,103 @@
+
+STATIC
+  pass S01  dist/ holds every deploy file
+  pass S02  brand/migrate-logo.png exists and dist has no repo docs
+  pass S03  repo hygiene: no agent config files or folders
+  pass S04  no AI attribution anywhere in text files
+  pass S05  colour literals live only in src/tokens.json (none elsewhere in src/)
+  pass S06  every colour literal in dist/ is a sampled token
+  pass S07  every token carries pixel provenance
+  pass S08  favicon is a 32x32 SVG with traced paths and no double hyphen
+  pass S09  favicon fill is a token
+  pass S10  no ch units anywhere
+  pass S11  register: every record has a valid state
+  pass S12  register: inert records carry no value and no url
+  pass S13  register holds chain, market source, contract, X and GitHub
+  pass S14  register: Solana chain and publicnode RPC as stated
+  pass S15  social icons use the official X mark and GitHub Octicon paths
+  pass S16  reduced-motion: media query, blanket stop, own-row animation none
+  pass S17  poll cadence is 60s and backoff is exponential
+  pass S18  motion tokens match the reference measurements
+  pass S19  own row: mint 2px left border, ownPulse, brand logo placeholder
+  pass S20  no dd.dexscreener.com logo used by the app code
+  pass S21  text contrast >= 4.5:1 on all token pairs used
+  pass S22  copy: zero shared content 2-grams with the reference
+         info: generic single words also on the reference (98): migrate, live, solana, market, address, pending, copy, links, move, first, around, keeps, front, open, coin, numbers, refresh, while, never, waits, launch, works, volume, listed, tokens, source, network, quotes, here, shown, above, when, trading, depth, token, price, answer, what, site, goes, trust, runs, moment, page, opens, wallet, waiting, date, held, reserve, belongs, until, exists, carries, mark, fills, itself, built, every, outside, sits, anything, data, feed, priced, pool, where, trades, list, once, minute, look, hidden, catches, instant, return, last, good, stay, appear, part, markets, chain, four, next, public, record, same, holder, official, confirmed, github, holds, summary, ticker, back, select, unavailable
+  pass S23  no dates, timestamps or clock strings in shipped copy
+  pass S24  scanner: stated 0x passes, unmatched 0x fails, stated base58 passes, unmatched base58 fails
+
+BROWSER, branch A: contract address ABSENT (live register)
+  pass A01  skeleton loaders present before data lands
+  pass A02  skeleton replaced by rows that fade in with a stagger
+  pass A03  CA slot: top of page, large, inert, label + pending only
+  pass A04  CA record carries no value or url while not stated
+  pass A05  social icons: present, icon-only, top-right, 44px, state read at runtime (1440px)
+  pass A06  row #1 placeholder: brand logo (not a letter tile), dots, $0.00, non-clickable
+  pass A07  row #1 keeps ownPulse running and the mint 2px left border
+  pass A08  rows 2-10 are Solana trending: nine rows, ranked 2..10, a copy button on each
+  pass A09  trending ordered by 24h volume, deepest pair only, base-token side only, Solana only
+  pass A10  logos load from imageUrl; letter tiles under threshold (>=2 fails)
+  pass A11  stat tiles and marquee fill from the same live data; status pill is live
+  pass A12  prices format: tiny values use subscript zero notation
+  pass A13  market fetched from token-boosts then tokens/v1/solana; no own-token calls without a CA
+  pass A14  no dates, timestamps or clock strings in rendered text, attributes or tooltips
+  pass A15  address scanner: no address-shaped string in the DOM while CA is absent
+  pass A16  no console errors or uncaught exceptions
+  pass A17  per-row copy button copies a full address without exposing it in the DOM
+  pass A18  animated mesh, live-dot pulse and running animations
+  pass A19  hero parallax responds to the pointer
+  pass A20  scroll progress bar tracks the page
+  pass A21  spotlight ring and 3D tilt follow the pointer over cards
+  pass A22  tabs switch panels with correct aria state
+  pass A23  sort pills reorder the board
+  pass A24  polling pauses while hidden and fetches immediately on visible
+  pass A25  social icons: present, icon-only, top-right, 44px, state read at runtime (360px)
+
+BROWSER, branch B: contract address STATED (register mutated at the network edge)
+  pass B01  CA slot shows the full stated address, large, with an enabled copy button
+  pass B02  click-to-copy writes the address and shows feedback
+  pass B03  social icons: present, icon-only, top-right, 44px, state read at runtime (1440px)
+  pass B04  own token: dex and pump.fun fetched together (Promise.all)
+  pass B05  row #1 pinned above trending, price/change/volume from the best base-token pair
+  pass B06  logo comes from pump.fun image_uri, never the dd.dexscreener.com cdn
+  pass B07  liquidity column uses pair liquidity when above zero
+  pass B08  row #1 mint left border 2px and ownPulse animation
+  pass B09  dedup: own token removed from trending rows 2-10
+  pass B10  console diagnostics emitted for the own token
+  pass B11  market follows only the market-source record: same trending set in both branches
+  pass B12  address scanner: only the stated address appears (CA exempt, nothing else address-shaped)
+  pass B13  no dates anywhere in the stated branch
+  pass B14  ticker leads with the own token once stated
+  pass B15  no console errors in the stated branch
+  pass B16  no liquidity: falls back to market cap, labelled Mkt Cap via title
+  pass B17  pump.fun failure: logo falls back to assets/logo-192.png, numbers still render
+  pass B18  broken pump.fun image: falls back to assets/logo-192.png, never a letter tile
+
+BROWSER, tiles, failure handling
+  pass C01  letter tile fallback for missing and failing imageUrl (3 here, so a >=2 threshold trips)
+  pass C02  source down: dashes plus an error notice, delayed status, placeholder row intact
+  pass C03  exponential backoff between retries (about 2s then 4s)
+  pass C04  refresh failure keeps the last good rows and flags the pill
+  pass C05  recovery restores live status and flashes changed values
+
+MUTATION HARNESS (anchors read the live record, expectations derived from it)
+  pass M-x  x flipped absent -> stated: icon follows (handle derived, leftovers ignored)
+  pass M-github  github flipped absent -> stated: icon follows (handle derived, leftovers ignored)
+  pass M-host  stated X url on a foreign host is refused and stays inert
+  pass M-ca-bad  stated CA that is not address-shaped is refused
+  pass M-ca-0x  a stated 0x hex address is accepted, not blanket-rejected
+  pass M-ca-short  0x with the wrong length is refused
+  pass M-unconfirmed  unconfirmed CA never leaks its value into the page
+  pass M-market  market follows the market-source record: absent source means no market, whatever the CA says
+  pass M-scanner  scanner catches an injected look-alike address while exempting the stated CA
+
+REDUCED MOTION
+  pass R-absent  prefers-reduced-motion (absent): zero running animations, no overlays, content instantly visible
+  pass R-stated  prefers-reduced-motion (stated): zero running animations, no overlays, content instantly visible
+
+ASSETS
+  pass D01  logo rasters keep alpha and have no dark fringe (premultiplied resize)
+  pass D02  logo-192.png IHDR is RGBA colour type 6
+
+============================================================
+gates: 85 run, 85 passed, 0 failed

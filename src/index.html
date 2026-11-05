@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MIGRATE | Live Solana market board</title>
+<meta name="description" content="MIGRATE keeps a live board of the busiest Solana tokens and holds a front-row seat for its own coin.">
+<link rel="canonical" href="https://migrate.onl/">
+<meta name="theme-color" content="{{paper}}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MIGRATE">
+<meta property="og:title" content="MIGRATE | Live Solana market board">
+<meta property="og:description" content="A live board of the busiest Solana tokens, with a front-row seat held for MIGRATE.">
+<meta property="og:url" content="https://migrate.onl/">
+<meta property="og:image" content="https://migrate.onl/assets/banner.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MIGRATE | Live Solana market board">
+<meta name="twitter:description" content="A live board of the busiest Solana tokens, with a front-row seat held for MIGRATE.">
+<meta name="twitter:image" content="https://migrate.onl/assets/banner.jpg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preload" href="/fonts/hanken-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/styles.css">
+<script type="module" src="/js/main.js"></script>
+</head>
+<body>
+<div id="progress" aria-hidden="true"></div>
+<div class="mesh" aria-hidden="true"><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i></div>
+
+<header class="site-head">
+  <section class="ca-strip" id="ca" aria-label="Contract address" data-record="ca" data-state="absent">
+    <div class="wrap ca-inner">
+      <span class="ca-label">Contract address</span>
+      <code class="ca-value" data-ca-value>pending</code>
+      <button class="ca-copy tap" type="button" data-ca-copy aria-disabled="true" disabled>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15V6.5A2.5 2.5 0 0 1 7.5 4H15"/></svg>
+        <span data-ca-copy-label>Copy</span>
+      </button>
+    </div>
+    <span class="sr-only" role="status" aria-live="polite" data-ca-live></span>
+  </section>
+
+  <div class="topbar-shell">
+    <div class="wrap topbar">
+      <a class="brand tap" href="#top" aria-label="MIGRATE home">
+        <img class="brand-mark" src="/assets/logo-96.png" width="32" height="32" alt="">
+        <span class="brand-word">MIGRATE</span>
+      </a>
+      <nav class="nav-desk" aria-label="Sections" data-nav>
+        <a class="tap" href="#board">Board</a>
+        <a class="tap" href="#overview">Overview</a>
+        <a class="tap" href="#roadmap">Roadmap</a>
+        <a class="tap" href="#links">Links</a>
+      </nav>
+      <div class="socials" data-socials>
+        <span class="social is-inert" data-social="x" data-state="absent" role="img" aria-label="X, pending"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></span>
+        <span class="social is-inert" data-social="github" data-state="absent" role="img" aria-label="GitHub, pending"><svg viewBox="0 0 16 16" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero wrap" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="pill" data-status data-state="syncing"><i class="dot" aria-hidden="true"></i><span data-status-text>Syncing</span></p>
+      <h1 id="hero-title" data-reveal>Follow the flow.<br><em>Move first.</em></h1>
+      <p class="lede" data-reveal>MIGRATE watches the busiest corner of Solana around the clock and keeps the front seat open for its own coin.</p>
+      <div class="cta" data-reveal>
+        <a class="btn btn-primary tap" href="#board">Open the board</a>
+        <a class="btn btn-ghost tap" href="#overview">See the plan</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true" data-parallax-root>
+      <div class="art-layer ring r3" data-depth="0.2"></div>
+      <div class="art-layer ring r2" data-depth="0.45"></div>
+      <div class="art-layer ring r1" data-depth="0.7"></div>
+      <div class="art-layer shard s1" data-depth="1.1"></div>
+      <div class="art-layer shard s2" data-depth="1.4"></div>
+      <img class="art-layer art-logo" data-depth="0.9" src="/assets/migrate-logo.png" width="320" height="320" alt="">
+    </div>
+  </section>
+
+  <!-- INTRO BANNER + STAT TILES -->
+  <section class="wrap stats" aria-label="Board summary">
+    <div class="intro spot" data-reveal>
+      <img class="intro-mark" src="/assets/logo-96.png" width="28" height="28" alt="">
+      <p>Numbers refresh on their own while you watch. The board never waits for a launch.</p>
+      <a class="intro-link tap" href="#overview">How it works</a>
+    </div>
+    <div class="tiles">
+      <article class="tile spot" data-reveal><h3>Board volume</h3><p class="mono" data-tile="volume">&mdash;</p><small>24h, listed tokens</small></article>
+      <article class="tile spot" data-reveal><h3>Tokens listed</h3><p class="mono" data-tile="count">&mdash;</p><small>live from the source</small></article>
+      <article class="tile spot" data-reveal data-record="chain" data-state="stated"><h3>Network</h3><p class="mono" data-tile="chain">Solana</p><small>home of all quotes here</small></article>
+      <article class="tile spot" data-reveal data-record="ca" data-state="absent"><h3>Contract</h3><p class="mono" data-tile="ca">pending</p><small>shown above when stated</small></article>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <section class="ticker" aria-label="Live ticker" data-ticker>
+    <div class="ticker-track" data-ticker-track>
+      <span class="tk tk-skel"></span><span class="tk tk-skel"></span><span class="tk tk-skel"></span><span class="tk tk-skel"></span><span class="tk tk-skel"></span><span class="tk tk-skel"></span>
+    </div>
+  </section>
+
+  <!-- MARKET BOARD -->
+  <section class="wrap board-sec" id="board" aria-labelledby="board-title">
+    <div class="sec-head" data-reveal>
+      <div>
+        <h2 id="board-title">Market board</h2>
+        <p class="sub">The busiest Solana tokens, ranked by trading volume.</p>
+      </div>
+      <div class="seg" role="group" aria-label="Sort board" data-sort>
+        <button class="tap is-on" type="button" data-sort-key="volume" aria-pressed="true">Volume</button>
+        <button class="tap" type="button" data-sort-key="change" aria-pressed="false">Gainers</button>
+        <button class="tap" type="button" data-sort-key="liquidity" aria-pressed="false">Depth</button>
+      </div>
+    </div>
+
+    <div class="board" role="table" aria-label="Solana market board" data-board>
+      <div class="row row-head" role="row">
+        <span role="columnheader">#</span>
+        <span role="columnheader">Token</span>
+        <span role="columnheader" class="num">Price</span>
+        <span role="columnheader" class="num">24h</span>
+        <span role="columnheader" class="num">Volume</span>
+        <span role="columnheader" class="num">Depth</span>
+        <span role="columnheader" class="num"><span class="sr-only">Copy address</span></span>
+      </div>
+      <div class="rows" role="rowgroup" data-rows aria-live="off">
+        <div class="row own is-placeholder" role="row" data-own-row data-state="absent">
+          <span class="rank mono" role="cell">1</span>
+          <span class="tok" role="cell">
+            <span class="logo-tile"><img src="/assets/migrate-logo.png" width="40" height="40" alt="MIGRATE logo" data-own-logo></span>
+            <span class="tok-name"><b>MIGRATE</b><small>pending</small></span>
+          </span>
+          <span class="num mono price" role="cell" data-cell="price">$0.00</span>
+          <span class="num mono chg" role="cell" data-cell="change">&middot; &middot; &middot; &middot; &middot;</span>
+          <span class="num mono" role="cell" data-cell="volume">&middot; &middot; &middot; &middot; &middot;</span>
+          <span class="num mono" role="cell" data-cell="liquidity">&middot; &middot; &middot; &middot; &middot;</span>
+          <span class="num" role="cell"><button class="icon-btn tap" type="button" disabled aria-disabled="true" aria-label="Copy address, pending"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15V6.5A2.5 2.5 0 0 1 7.5 4H15"/></svg></button></span>
+        </div>
+        <div data-trending>
+          <div class="row skel-row" aria-hidden="true"><i class="skel"></i><i class="skel"></i><i class="skel"></i></div>
+          <div class="row skel-row" aria-hidden="true"><i class="skel"></i><i class="skel"></i><i class="skel"></i></div>
+          <div class="row skel-row" aria-hidden="true"><i class="skel"></i><i class="skel"></i><i class="skel"></i></div>
+          <div class="row skel-row" aria-hidden="true"><i class="skel"></i><i class="skel"></i><i class="skel"></i></div>
+          <div class="row skel-row" aria-hidden="true"><i class="skel"></i><i class="skel"></i><i class="skel"></i></div>
+          <div class="row skel-row" aria-hidden="true"><i class="skel"></i><i class="skel"></i><i class="skel"></i></div>
+          <div class="row skel-row" aria-hidden="true"><i class="skel"></i><i class="skel"></i><i class="skel"></i></div>
+          <div class="row skel-row" aria-hidden="true"><i class="skel"></i><i class="skel"></i><i class="skel"></i></div>
+          <div class="row skel-row" aria-hidden="true"><i class="skel"></i><i class="skel"></i><i class="skel"></i></div>
+        </div>
+      </div>
+      <p class="board-error" role="alert" data-board-error hidden>The market source did not answer. Retrying on its own.</p>
+    </div>
+  </section>
+
+  <!-- OVERVIEW TABS -->
+  <section class="wrap overview" id="overview" aria-labelledby="ov-title">
+    <div class="sec-head" data-reveal>
+      <div>
+        <h2 id="ov-title">Overview</h2>
+        <p class="sub">What this site does, and what happens when the coin goes live.</p>
+      </div>
+      <div class="seg" role="tablist" aria-label="Overview sections" data-tabs>
+        <button class="tap is-on" role="tab" type="button" id="tab-vision" aria-controls="panel-vision" aria-selected="true" data-tab="vision">Vision</button>
+        <button class="tap" role="tab" type="button" id="tab-how" aria-controls="panel-how" aria-selected="false" tabindex="-1" data-tab="how">Mechanics</button>
+        <button class="tap" role="tab" type="button" id="tab-trust" aria-controls="panel-trust" aria-selected="false" tabindex="-1" data-tab="trust">Trust</button>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="panel-vision" aria-labelledby="tab-vision" data-panel="vision">
+      <article class="card spot"><span class="card-ix mono">01</span><h3>Live from the first visit</h3><p>The board runs the moment the page opens. No wallet, no signup, no waiting on a date.</p></article>
+      <article class="card spot"><span class="card-ix mono">02</span><h3>A seat held in reserve</h3><p>The top row belongs to MIGRATE. Until the coin exists it carries our mark and a quiet placeholder, then it fills itself.</p></article>
+      <article class="card spot"><span class="card-ix mono">03</span><h3>Built to be verified</h3><p>Every outside fact on this page sits in one register. Anything unconfirmed is shown as pending, never guessed.</p></article>
+    </div>
+    <div class="panel" role="tabpanel" id="panel-how" aria-labelledby="tab-how" data-panel="how" hidden>
+      <article class="card spot"><span class="card-ix mono">01</span><h3>Scan</h3><p>Promoted Solana tokens are gathered from an open data feed, then trimmed to the busiest ones.</p></article>
+      <article class="card spot"><span class="card-ix mono">02</span><h3>Rank</h3><p>Each coin is priced from the pool where it trades most, then the list is sorted by volume.</p></article>
+      <article class="card spot"><span class="card-ix mono">03</span><h3>Refresh</h3><p>The board polls once a minute while you look, rests while the tab is hidden, and catches up the instant you return.</p></article>
+    </div>
+    <div class="panel" role="tabpanel" id="panel-trust" aria-labelledby="tab-trust" data-panel="trust" hidden>
+      <article class="card spot"><span class="card-ix mono">01</span><h3>Honest failure</h3><p>If the source goes quiet you see dashes and a notice. The last good numbers stay on screen meanwhile.</p></article>
+      <article class="card spot"><span class="card-ix mono">02</span><h3>Address discipline</h3><p>Only an address recorded in the register can appear in the contract slot. Look-alikes never get through.</p></article>
+      <article class="card spot"><span class="card-ix mono">03</span><h3>Information only</h3><p>No part of this page is a recommendation. Markets move fast and quotes can trail the chain.</p></article>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section class="wrap roadmap" id="roadmap" aria-labelledby="rm-title">
+    <div class="sec-head" data-reveal>
+      <div>
+        <h2 id="rm-title">Roadmap</h2>
+        <p class="sub">Four stages, each one opens the next.</p>
+      </div>
+    </div>
+    <ol class="phases">
+      <li class="phase spot" data-reveal><span class="phase-ix mono">I</span><h3>Foundation</h3><p>Live board, contract slot and public record of every outside fact.</p></li>
+      <li class="phase spot" data-reveal><span class="phase-ix mono">II</span><h3>Signal</h3><p>Sharper filters, watchlists and alerts layered over the same feed.</p></li>
+      <li class="phase spot" data-reveal><span class="phase-ix mono">III</span><h3>Community</h3><p>Holder tools, open channels and a public workshop for ideas.</p></li>
+      <li class="phase spot" data-reveal><span class="phase-ix mono">IV</span><h3>Expansion</h3><p>New data sources, partner integrations and wider coverage.</p></li>
+    </ol>
+  </section>
+
+  <!-- LINKS / REGISTER VIEW -->
+  <section class="wrap links" id="links" aria-labelledby="ln-title">
+    <div class="sec-head" data-reveal>
+      <div>
+        <h2 id="ln-title">Links</h2>
+        <p class="sub">Official channels get listed once they are confirmed.</p>
+      </div>
+    </div>
+    <ul class="chips" data-chips data-reveal>
+      <li class="chip is-inert" data-chip="ca" data-state="absent"><span>Contract address</span><b>pending</b></li>
+      <li class="chip is-inert" data-chip="x" data-state="absent"><span>X</span><b>pending</b></li>
+      <li class="chip is-inert" data-chip="github" data-state="absent"><span>GitHub</span><b>pending</b></li>
+    </ul>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a class="brand tap" href="#top" aria-label="Back to top"><img class="brand-mark" src="/assets/logo-96.png" width="28" height="28" alt=""><span class="brand-word">MIGRATE</span></a>
+    <p>Figures are informational and can trail the chain. This page offers no advice.</p>
+  </div>
+</footer>
+
+<nav class="tabbar" aria-label="Sections">
+  <a class="tap" href="#board"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><span>Board</span></a>
+  <a class="tap" href="#overview"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg><span>Overview</span></a>
+  <a class="tap" href="#roadmap"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg><span>Roadmap</span></a>
+  <a class="tap" href="#links"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg><span>Links</span></a>
+</nav>
+</body>
+</html>

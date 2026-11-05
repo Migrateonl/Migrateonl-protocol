@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "records": [
+    {
+      "id": "chain",
+      "label": "Chain",
+      "state": "stated",
+      "value": "Solana",
+      "source": "client statement",
+      "scope": "batch-level",
+      "checked": "2026-11-05"
+    },
+    {
+      "id": "rpc",
+      "label": "RPC endpoint",
+      "state": "stated",
+      "url": "https://solana-rpc.publicnode.com",
+      "source": "client statement",
+      "scope": "batch-level",
+      "checked": "2026-11-05"
+    },
+    {
+      "id": "market-source",
+      "label": "Market source",
+      "state": "stated",
+      "value": "DexScreener",
+      "url": "https://api.dexscreener.com",
+      "source": "client statement",
+      "scope": "batch-level",
+      "checked": "2026-11-05"
+    },
+    {
+      "id": "logo-source",
+      "label": "Own token logo source",
+      "state": "stated",
+      "value": "pump.fun",
+      "url": "https://frontend-api.pump.fun/coins",
+      "source": "client statement",
+      "scope": "batch-level",
+      "checked": "2026-11-05"
+    },
+    {
+      "id": "ca",
+      "label": "Contract address",
+      "state": "absent",
+      "source": "client statement",
+      "scope": "batch-level",
+      "checked": "2026-11-05"
+    },
+    {
+      "id": "x",
+      "label": "X",
+      "state": "stated",
+      "source": "client statement",
+      "scope": "batch-level",
+      "checked": "2026-11-05",
+      "url": "https://x.com/migrateonl"
+    },
+    {
+      "id": "github",
+      "label": "GitHub",
+      "state": "absent",
+      "source": "client statement",
+      "scope": "batch-level",
+      "checked": "2026-11-05"
+    }
+  ]
+}
